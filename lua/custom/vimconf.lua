@@ -26,6 +26,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
 
 vim.cmd 'set nofoldenable' -- Disable folding at startup
 vim.cmd 'set foldnestmax=1' -- Only fold the parent block
+vim.cmd 'set foldcolumn=1' -- Show the fold column
 
 -- Enable 24-bit color
 vim.opt.termguicolors = true
