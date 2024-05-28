@@ -5,5 +5,10 @@ return {
     -- See `:help ibl`
     main = 'ibl',
     opts = {},
+    -- injected_languages = false,
+    -- node_type = { ['*'] = { '*' } },
+    -- config = function()
+    --   require('ibl').setup()
+    -- end,
   },
 }

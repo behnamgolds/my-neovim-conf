@@ -68,6 +68,14 @@ require('lazy').setup({
       lazy = '💤 ',
     },
   },
+  checker = {
+    -- disable check for plugin updates
+    enabled = false,
+  },
+  change_detection = {
+    -- disable check for config file changes
+    enabled = false,
+  },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
