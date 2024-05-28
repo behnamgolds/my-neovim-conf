@@ -4,6 +4,9 @@ local plugin = { -- Autocompletion
   dependencies = {
     -- Snippet Engine & its associated nvim-cmp source
     {
+      -- suggest texts from within this buffer(file)
+      'hrsh7th/cmp-buffer',
+
       'L3MON4D3/LuaSnip',
       build = (function()
         -- Build Step is needed for regex support in snippets.
@@ -14,30 +17,25 @@ local plugin = { -- Autocompletion
         end
         return 'make install_jsregexp'
       end)(),
-      dependencies = {
-        -- `friendly-snippets` contains a variety of premade snippets.
-        --    See the README about individual language/framework/plugin snippets:
-        --    https://github.com/rafamadriz/friendly-snippets
-        {
-          'rafamadriz/friendly-snippets',
-          config = function()
-            require('luasnip.loaders.from_vscode').lazy_load()
-          end,
-        },
-      },
     },
+
+    'rafamadriz/friendly-snippets',
     'saadparwaiz1/cmp_luasnip',
 
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
+
+    -- suggest path completion
     'hrsh7th/cmp-path',
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+    require('luasnip.loaders.from_vscode').lazy_load()
+
     luasnip.config.setup {}
 
     cmp.setup {
@@ -104,6 +102,7 @@ local plugin = { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+        { name = 'buffer' },
       },
     }
   end,

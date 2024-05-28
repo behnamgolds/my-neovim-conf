@@ -162,6 +162,10 @@ local plugin = {
           -- root_dir = nvim_lsp.util.root_pattern('go.work', 'go.mod', '.git'),
         },
         pyright = {},
+        tsserver = {},
+        cssls = {},
+        emmet_ls = {},
+        html = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
