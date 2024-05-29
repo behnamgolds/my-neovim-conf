@@ -1,4 +1,4 @@
-## Fork of '[ kickstart.nvim' ](https://github.com/nvim-lua/kickstart.nvim)
+## Fork of ['kickstart.nvim' ](https://github.com/nvim-lua/kickstart.nvim)
 ## Switched to multi-directory plugin management approach
 
 ## Introduction
