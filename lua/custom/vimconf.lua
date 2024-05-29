@@ -12,22 +12,6 @@ vim.g.maplocalleader = ' '
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded', width = 70, heigh = 20 })
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 
--- Enable code/text folding
-vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-  callback = function()
-    if require('nvim-treesitter.parsers').has_parser() then
-      vim.opt.foldmethod = 'expr'
-      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-    else
-      vim.opt.foldmethod = 'syntax'
-    end
-  end,
-})
-
-vim.cmd 'set nofoldenable' -- Disable folding at startup
-vim.cmd 'set foldnestmax=1' -- Only fold the parent block
-vim.cmd 'set foldcolumn=1' -- Show the fold column
-
 -- Enable 24-bit color
 vim.opt.termguicolors = true
 
@@ -145,3 +129,44 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- Enable code/text folding
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  callback = function()
+    if require('nvim-treesitter.parsers').has_parser() then
+      vim.opt.foldmethod = 'expr'
+      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+    else
+      vim.opt.foldmethod = 'syntax'
+    end
+  end,
+})
+
+vim.cmd 'set nofoldenable' -- Disable folding at startup
+vim.cmd 'set foldnestmax=1' -- Only fold the parent block
+vim.cmd 'set foldlevel=90' -- Only fold this block (helpful when the detection type is expr)
+-- vim.cmd 'set foldcolumn=1' -- Show the fold column
+
+-- Create a function and expose it to the nvim
+
+-- vim.api.nvim_set_keymap('n', '<leader>tf', ':lua require lua.custom.vimconf.toggleFoldCol', { noremap = true, silent = true })
+--
+-- --
+-- --
+-- local M = {}
+--
+-- local toBool = {
+--   ['1'] = true,
+--   ['0'] = false,
+-- }
+--
+-- function M.toggleFoldCol()
+--   if toBool[vim.opt.foldcolumn:get()] then
+--     vim.opt.foldcolumn = '0'
+--   else
+--     vim.opt.foldcolumn = '0'
+--   end
+-- end
+--
+-- return M
+--
