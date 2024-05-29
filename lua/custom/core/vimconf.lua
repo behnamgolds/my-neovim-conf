@@ -8,6 +8,19 @@ vim.cmd 'set shiftwidth=2'
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- For detecting go template files
+-- see https://github.com/ngalaiko/tree-sitter-go-template
+vim.filetype.add {
+  extension = {
+    gotmpl = 'gotmpl',
+    gohtml = 'gotmpl',
+    gohtmltmpl = 'gotmpl',
+    gohtxttmpl = 'gotmpl',
+    gohtexttmpl = 'gotmpl',
+  },
+}
+-- For detecting go template files
+
 -- Change help/documentation window nice and small
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded', width = 70, heigh = 20 })
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
