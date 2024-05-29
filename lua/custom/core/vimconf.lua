@@ -10,15 +10,20 @@ vim.g.maplocalleader = ' '
 
 -- For detecting go template files
 -- see https://github.com/ngalaiko/tree-sitter-go-template
-vim.filetype.add {
-  extension = {
-    gotmpl = 'gotmpl',
-    gohtml = 'gotmpl',
-    gohtmltmpl = 'gotmpl',
-    gohtxttmpl = 'gotmpl',
-    gohtexttmpl = 'gotmpl',
-  },
-}
+-- vim.filetype.add {
+--   extension = {
+--     gotmpl = 'gotmpl',
+--     gohtml = 'gotmpl',
+--     gohtmltmpl = 'gotmpl',
+--     gohtxttmpl = 'gotmpl',
+--     gohtexttmpl = 'gotmpl',
+--   },
+-- }
+
+-- vim.treesitter.language.add('gotmpl', { path = '/home/behnam/.local/share/nvim/lazy/nvim-treesitter/parser/gotmpl.so' })
+-- vim.treesitter.query.get_files('gotmpl', 'highlights', nil)
+-- vim.treesitter.query.get_files('gotmpl', 'injections', nil)
+-- vim.treesitter.language.register('gotmpl', 'gotmpl')
 -- For detecting go template files
 
 -- Change help/documentation window nice and small

@@ -1,4 +1,5 @@
-local plugin = {
+-- TODO: Get the highlights and language injections(html, css, js) to work with gotmpl
+return {
   -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
@@ -16,6 +17,7 @@ local plugin = {
       'css',
       'go',
       'gomod',
+      'gotmpl',
       'gosum',
       'gowork',
       'yaml',
@@ -37,6 +39,28 @@ local plugin = {
     indent = { enable = true, disable = { 'ruby' } },
   },
   config = function(_, opts)
+    -- For detecting go template files
+    -- see https://github.com/ngalaiko/tree-sitter-go-template
+    vim.filetype.add {
+      extension = {
+        gotmpl = 'gotmpl',
+        gohtml = 'gotmpl',
+        gohtmltmpl = 'gotmpl',
+        gohtxttmpl = 'gotmpl',
+        gohtexttmpl = 'gotmpl',
+      },
+    }
+    local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+    parser_configs['gotmpl'] = {
+      install_info = {
+        url = 'https://github.com/ngalaiko/tree-sitter-go-template',
+        files = { 'src/parser.c' },
+      },
+      filetype = 'gotmpl',
+      used_by = { 'gohtmltmpl', 'gotexttmpl', 'gotmpl', 'gotxttmpl', 'gohtml' },
+    }
+    -- For detecting go template files
+
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
     -- Prefer git instead of curl in order to improve connectivity in some environments
@@ -52,5 +76,3 @@ local plugin = {
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   end,
 }
-
-return plugin
