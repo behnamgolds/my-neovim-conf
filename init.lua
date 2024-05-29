@@ -55,6 +55,9 @@ require('lazy').setup({
     -- disable check for config file changes
     enabled = false,
   },
+  -- disabled_plugins = {
+  --   'harpoon',
+  -- },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
