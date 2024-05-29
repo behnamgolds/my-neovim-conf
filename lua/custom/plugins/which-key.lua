@@ -34,6 +34,9 @@ local plugin = {
       require('which-key').register({
         ['<leader>h'] = { 'Git [H]unk' },
       }, { mode = 'v' })
+      -- Decrease mapped sequence wait time
+      -- Displays which-key popup sooner
+      vim.opt.timeoutlen = 500
     end,
   },
 }
