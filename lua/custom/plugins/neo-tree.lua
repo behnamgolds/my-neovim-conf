@@ -1,3 +1,5 @@
+-- TODO: find a way to switch directory after opening a previously opened file at the dashboard screen
+--       maybe somhow follow the :cwd ?!
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
@@ -24,6 +26,16 @@ return {
   },
   config = function()
     require('neo-tree').setup {
+      -- use_libuv_file_watcher = true,
+      close_if_last_window = true,
+      window = {
+        position = 'left',
+        width = 30,
+        mapping_options = {
+          noremap = true,
+          nowait = true,
+        },
+      },
       event_handlers = {
         {
           event = 'file_opened',
