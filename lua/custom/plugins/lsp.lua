@@ -20,12 +20,12 @@ local plugin = {
       -- configure Neovim using JSON files (can have comments)
       -- global settings: ~/.config/nvim/neoconf.json
       -- local settings: ~/projects/foobar/.neoconf.json
-      { 'folke/neoconf.nvim' },
+      -- { 'folke/neoconf.nvim' },
     },
     config = function()
-      require('neoconf').setup {
-        -- override any of the default settings here
-      }
+      -- require('neoconf').setup {
+      --   -- override any of the default settings here
+      -- }
       -- Brief aside: **What is LSP?**
       --
       -- LSP is an initialism you've probably heard, but might not understand what it is.
