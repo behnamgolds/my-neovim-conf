@@ -10,6 +10,10 @@ local plugin = {
   config = function()
     local barbar = require 'barbar'
 
+    require('which-key').register {
+      ['<leader>b'] = { name = '[B]ar Bar', _ = 'which_key_ignore' },
+    }
+
     barbar.setup {
       clickable = true, -- Enables/disables clickable tabs
       tabpages = false, -- Enable/disables current/total tabpages indicator (top right corner)
