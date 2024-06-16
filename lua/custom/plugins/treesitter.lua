@@ -45,6 +45,7 @@ return {
       extension = {
         gotmpl = 'gotmpl',
         gohtml = 'gotmpl',
+        tmpl = 'gotmpl',
         gohtmltmpl = 'gotmpl',
         gohtxttmpl = 'gotmpl',
         gohtexttmpl = 'gotmpl',
@@ -57,7 +58,7 @@ return {
         files = { 'src/parser.c' },
       },
       filetype = 'gotmpl',
-      used_by = { 'gohtmltmpl', 'gotexttmpl', 'gotmpl', 'gotxttmpl', 'gohtml' },
+      used_by = { 'gohtmltmpl', 'gotexttmpl', 'gotmpl', 'gotxttmpl', 'gohtml', 'tmpl' },
     }
     -- For detecting go template files
 
