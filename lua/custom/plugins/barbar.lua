@@ -10,8 +10,10 @@ local plugin = {
   config = function()
     local barbar = require 'barbar'
 
-    require('which-key').register {
-      ['<leader>b'] = { name = '[B]ar Bar', _ = 'which_key_ignore' },
+    require('which-key').add {
+      -- ['<leader>b'] = { name = '[B]ar Bar', _ = 'which_key_ignore' },
+      { '<leader>b', group = '[B]ar Bar' },
+      { '<leader>b_', hidden = true },
     }
 
     -- allow barbar tab order to be saved with :mksession

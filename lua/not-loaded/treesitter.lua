@@ -28,15 +28,15 @@ return {
       'csv',
     },
     -- Autoinstall languages that are not installed
-    auto_install = false,
+    auto_install = true,
     highlight = {
       enable = true,
       -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
       --  If you are experiencing weird indenting issues, add the language to
       --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-      -- additional_vim_regex_highlighting = { 'ruby' },
+      additional_vim_regex_highlighting = { 'ruby' },
     },
-    -- indent = { enable = true, disable = { 'ruby' } },
+    indent = { enable = true, disable = { 'ruby' } },
   },
   config = function(_, opts)
     -- For detecting go template files
@@ -53,10 +53,10 @@ return {
     }
     local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
     parser_configs['gotmpl'] = {
-      install_info = {
-        url = 'https://github.com/ngalaiko/tree-sitter-go-template',
-        files = { 'src/parser.c' },
-      },
+      -- install_info = {
+      --   url = 'https://github.com/ngalaiko/tree-sitter-go-template',
+      --   files = { 'src/parser.c' },
+      -- },
       filetype = 'gotmpl',
       used_by = { 'gohtmltmpl', 'gotexttmpl', 'gotmpl', 'gotxttmpl', 'gohtml', 'tmpl' },
     }
