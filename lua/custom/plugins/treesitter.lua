@@ -26,6 +26,7 @@ return {
       'javascript',
       'sql',
       'csv',
+      'dockerfile',
     },
     -- Autoinstall languages that are not installed
     auto_install = false,
