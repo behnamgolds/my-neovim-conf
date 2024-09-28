@@ -23,6 +23,39 @@ local plugin = {
       -- { 'folke/neoconf.nvim' },
     },
     config = function()
+      require('lspconfig').intelephense.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          intelephense = {
+            -- possible values: stubs.txt
+            stubs = {
+              'Core',
+              'SPL',
+              'imagick',
+              'standard',
+              'pcre',
+              'date',
+              'json',
+              'ctype',
+              'SimpleXML',
+              'Reflection',
+              'exif',
+              'filter',
+              'random',
+            },
+          },
+        },
+        -- on_attach = function(client, bufnr)
+        -- Enable (omnifunc) completion triggered by <c-x><c-o>
+        -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+        -- Here we should add additional keymaps and configuration options.
+        -- end,
+        flags = {
+          debounce_text_changes = 150,
+        },
+      }
       -- require('neoconf').setup {
       --   -- override any of the default settings here
       -- }
@@ -216,9 +249,20 @@ local plugin = {
         -- },
         pyright = {},
         bashls = {},
-        tsserver = {},
+        ts_ls = {},
         cssls = {},
-        emmet_ls = {},
+        emmet_ls = {
+          capabilities = capabilities,
+          filetypes = { 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'svelte', 'pug', 'typescriptreact', 'vue' },
+          init_options = {
+            html = {
+              options = {
+                -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+                ['bem.enabled'] = true,
+              },
+            },
+          },
+        },
         html = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -276,6 +320,7 @@ local plugin = {
         'stylua', -- Used to format Lua code
         'goimports',
         'gofumpt',
+        'ts_ls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
