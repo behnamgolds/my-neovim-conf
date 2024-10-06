@@ -26,7 +26,11 @@ local plugin = {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        php = { 'pint', 'php-cs-fixer' },
+        -- php = { 'pint', 'pretty-php', 'phpcbf' },
+        -- php = { 'phpfmt' },
+        -- php = { 'ecs' },
+        php = { 'phpcbf' },
+        -- php = { 'pretty-php', 'pint' },
 
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },

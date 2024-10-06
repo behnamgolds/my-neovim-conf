@@ -24,8 +24,8 @@ local plugin = {
     },
     config = function()
       require('lspconfig').intelephense.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
+        -- capabilities = capabilities,
+        -- on_attach = on_attach,
         settings = {
           intelephense = {
             -- possible values: stubs.txt
@@ -55,6 +55,9 @@ local plugin = {
         flags = {
           debounce_text_changes = 150,
         },
+        format = { enable = true },
+        licenseKey = '~/intelephense/licence.txt',
+        telemetry = { enabled = false },
       }
       -- require('neoconf').setup {
       --   -- override any of the default settings here

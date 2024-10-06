@@ -7,6 +7,7 @@ return {
     ensure_installed = {
       'bash',
       'php',
+      'php_only',
       'phpdoc',
       'c',
       'diff',
@@ -39,7 +40,8 @@ return {
       --  the list of additional_vim_regex_highlighting and disabled languages for indent.
       -- additional_vim_regex_highlighting = { 'ruby' },
     },
-    indent = { enable = true, disable = { 'ruby' } },
+    indent = { enable = true, disable = { 'ruby', 'php' } },
+    -- smartindent = { enable = false },
   },
   config = function(_, opts)
     -- For detecting go template files
