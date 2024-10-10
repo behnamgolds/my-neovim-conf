@@ -8,10 +8,10 @@ return {
 
       vim.g.nvim_phpcs_config_phpcs_path = 'phpcs'
       vim.g.nvim_phpcs_config_phpcbf_path = 'phpcbf'
-      vim.g.nvim_phpcs_config_phpcs_standard = 'PSR12' -- or path to your ruleset phpcs.xml
+      vim.g.nvim_phpcs_config_phpcs_standard = 'PSR2' -- or path to your ruleset phpcs.xml
 
       -- Setup auto formatting for php files using phpcs
-      vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {
+      vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost' }, {
         group = 'PHPCSGroup',
         pattern = '*.php',
         command = "lua require'phpcs'.cs()",

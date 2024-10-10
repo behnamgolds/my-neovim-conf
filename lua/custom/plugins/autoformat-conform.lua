@@ -29,7 +29,7 @@ local plugin = {
         -- php = { 'pint', 'pretty-php', 'phpcbf' },
         -- php = { 'phpfmt' },
         -- php = { 'ecs' },
-        php = { 'phpcbf' },
+        php = { 'pretty-php', 'phpcbf' },
         -- php = { 'pretty-php', 'pint' },
 
         -- Conform can also run multiple formatters sequentially
