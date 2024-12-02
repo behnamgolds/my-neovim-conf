@@ -8,23 +8,45 @@ vim.cmd 'set shiftwidth=2'
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- For detecting go template files
--- see https://github.com/ngalaiko/tree-sitter-go-template
--- vim.filetype.add {
---   extension = {
---     gotmpl = 'gotmpl',
---     gohtml = 'gotmpl',
---     gohtmltmpl = 'gotmpl',
---     gohtxttmpl = 'gotmpl',
---     gohtexttmpl = 'gotmpl',
---   },
--- }
+-- *** Added from Laracast
+--
+-- Reselect visual selection after indenting.
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
 
--- vim.treesitter.language.add('gotmpl', { path = '/home/behnam/.local/share/nvim/lazy/nvim-treesitter/parser/gotmpl.so' })
--- vim.treesitter.query.get_files('gotmpl', 'highlights', nil)
--- vim.treesitter.query.get_files('gotmpl', 'injections', nil)
--- vim.treesitter.language.register('gotmpl', 'gotmpl')
--- For detecting go template files
+-- When text is wrapped, move by terminal rows, not lines, unless a count is provided.
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
+
+-- Maintain the cursor position when yanking a visual selection.
+vim.keymap.set('v', 'y', 'myy`y')
+vim.keymap.set('v', 'Y', 'myY`y')
+
+-- Paste replace visual selection without copying it.
+vim.keymap.set('v', 'p', '"_dP')
+--
+-- Easy insertion of a trailing ; or , from insert mode.
+-- in insert mode typing ;; goes to normal mode(Esc) then append to end of line (A) insert ; and then
+-- back to normal mode
+vim.keymap.set('i', ';;', '<Esc>A;<Esc>')
+vim.keymap.set('i', ',,', '<Esc>A,<Esc>')
+
+-- Clear search highlighting.
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Move text up and down
+vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
+vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==gi')
+vim.keymap.set('n', '<A-j>', ':move .+1<CR>==')
+vim.keymap.set('n', '<A-k>', ':move .-2<CR>==')
+vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
+vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
+
+-- Open the current file in the default program (on Mac this should just be just `open`).
+-- vim.keymap.set("n", "<leader>x", ":!xdg-open %<cr><cr>")
+
+--
+-- *** Added from Laracast
 
 -- Change help/documentation window nice and small
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded', width = 70, heigh = 20 })
