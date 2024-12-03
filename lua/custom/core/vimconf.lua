@@ -37,10 +37,11 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Move text up and down
 vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
 vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==gi')
-vim.keymap.set('n', '<A-j>', ':move .+1<CR>==')
-vim.keymap.set('n', '<A-k>', ':move .-2<CR>==')
-vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
-vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
+-- have the following(and better) functionality with mini.move submodule plugin.
+-- vim.keymap.set('n', '<A-j>', ':move .+1<CR>==')
+-- vim.keymap.set('n', '<A-k>', ':move .-2<CR>==')
+-- vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
+-- vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
 
 -- Open the current file in the default program (on Mac this should just be just `open`).
 -- vim.keymap.set("n", "<leader>x", ":!xdg-open %<cr><cr>")
