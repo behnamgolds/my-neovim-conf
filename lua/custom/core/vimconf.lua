@@ -23,7 +23,9 @@ vim.keymap.set('v', 'y', 'myy`y')
 vim.keymap.set('v', 'Y', 'myY`y')
 
 -- Paste replace visual selection without copying it.
-vim.keymap.set('v', 'p', '"_dP')
+-- NOTE: messes with the selection mode in auto completes
+-- (select mode) if the input starts with p character
+-- vim.keymap.set('v', 'p', '"_dP')
 --
 -- Easy insertion of a trailing ; or , from insert mode.
 -- in insert mode typing ;; goes to normal mode(Esc) then append to end of line (A) insert ; and then
