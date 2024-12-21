@@ -11,6 +11,7 @@ return {
     vim.g.floaterm_title = ' Terminal '
     vim.g.floaterm_titleposition = 'center'
     vim.keymap.set('n', '<F1>', ':FloatermToggle<CR>', { silent = true })
+    vim.keymap.set('v', '<F1>', '<Esc>:FloatermToggle<CR>', { silent = true })
     vim.keymap.set('i', '<F1>', '<Esc>:FloatermToggle<CR>', { silent = true })
 
     vim.keymap.set('t', '<F1>', '<C-\\><C-n>:FloatermToggle<CR>', { silent = true })
