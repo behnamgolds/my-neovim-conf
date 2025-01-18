@@ -35,6 +35,7 @@ vim.keymap.set('v', 'Y', 'myY`y')
 -- in insert mode typing ;; goes to normal mode(Esc) then append to end of line (A) insert ; and then
 -- back to normal mode
 vim.keymap.set('i', ';;', '<Esc>A;<Esc>')
+vim.keymap.set('i', '::', '<Esc>A: ')
 vim.keymap.set('i', ',,', '<Esc>A,<Esc>')
 
 -- Clear search highlighting.
