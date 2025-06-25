@@ -4,7 +4,7 @@ vim.cmd 'set softtabstop=2'
 vim.cmd 'set shiftwidth=2'
 
 -- enable spell checking
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = { 'en_us' }
 
 -- Set <space> as the leader key
