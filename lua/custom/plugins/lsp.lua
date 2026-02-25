@@ -23,42 +23,42 @@ local plugin = {
       -- { 'folke/neoconf.nvim' },
     },
     config = function()
-      require('lspconfig').intelephense.setup {
-        -- capabilities = capabilities,
-        -- on_attach = on_attach,
-        settings = {
-          intelephense = {
-            -- possible values: stubs.txt
-            stubs = {
-              'Core',
-              'SPL',
-              'imagick',
-              'standard',
-              'pcre',
-              'date',
-              'json',
-              'ctype',
-              'SimpleXML',
-              'Reflection',
-              'exif',
-              'filter',
-              'random',
-            },
-          },
-        },
-        -- on_attach = function(client, bufnr)
-        -- Enable (omnifunc) completion triggered by <c-x><c-o>
-        -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-        -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-        -- Here we should add additional keymaps and configuration options.
-        -- end,
-        flags = {
-          debounce_text_changes = 150,
-        },
-        format = { enable = true },
-        licenseKey = '~/intelephense/licence.txt',
-        telemetry = { enabled = false },
-      }
+      -- require('lspconfig').intelephense.setup {
+      --   -- capabilities = capabilities,
+      --   -- on_attach = on_attach,
+      --   settings = {
+      --     intelephense = {
+      --       -- possible values: stubs.txt
+      --       stubs = {
+      --         'Core',
+      --         'SPL',
+      --         'imagick',
+      --         'standard',
+      --         'pcre',
+      --         'date',
+      --         'json',
+      --         'ctype',
+      --         'SimpleXML',
+      --         'Reflection',
+      --         'exif',
+      --         'filter',
+      --         'random',
+      --       },
+      --     },
+      --   },
+      --   -- on_attach = function(client, bufnr)
+      --   -- Enable (omnifunc) completion triggered by <c-x><c-o>
+      --   -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+      --   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+      --   -- Here we should add additional keymaps and configuration options.
+      --   -- end,
+      --   flags = {
+      --     debounce_text_changes = 150,
+      --   },
+      --   format = { enable = true },
+      --   licenseKey = '~/intelephense/licence.txt',
+      --   telemetry = { enabled = false },
+      -- }
       -- require('neoconf').setup {
       --   -- override any of the default settings here
       -- }
