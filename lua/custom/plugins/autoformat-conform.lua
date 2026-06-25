@@ -26,6 +26,7 @@ local plugin = {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        cpp = { 'clang_format' },
         -- php = { 'pint', 'pretty-php', 'phpcbf' },
         -- php = { 'phpfmt' },
         -- php = { 'ecs' },

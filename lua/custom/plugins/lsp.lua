@@ -202,7 +202,8 @@ local plugin = {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {},
+        -- clang_format = {},
         gopls = {
           keys = {
             -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
@@ -321,6 +322,8 @@ local plugin = {
         'goimports',
         'gofumpt',
         'ts_ls',
+        'clangd',
+        'clang-format',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

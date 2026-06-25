@@ -56,15 +56,16 @@ return {
         gohtexttmpl = 'gotmpl',
       },
     }
-    local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-    parser_configs['gotmpl'] = {
-      install_info = {
-        url = 'https://github.com/ngalaiko/tree-sitter-go-template',
-        files = { 'src/parser.c' },
-      },
-      filetype = 'gotmpl',
-      used_by = { 'gohtmltmpl', 'gotexttmpl', 'gotmpl', 'gotxttmpl', 'gohtml', 'tmpl' },
-    }
+	-- EEE error with nvim 0.12
+    -- local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+    -- parser_configs['gotmpl'] = {
+    --   install_info = {
+    --     url = 'https://github.com/ngalaiko/tree-sitter-go-template',
+    --     files = { 'src/parser.c' },
+    --   },
+    --   filetype = 'gotmpl',
+    --   used_by = { 'gohtmltmpl', 'gotexttmpl', 'gotmpl', 'gotxttmpl', 'gohtml', 'tmpl' },
+    -- }
     -- For detecting go template files
 
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -72,7 +73,8 @@ return {
     -- Prefer git instead of curl in order to improve connectivity in some environments
     require('nvim-treesitter.install').prefer_git = true
     ---@diagnostic disable-next-line: missing-fields
-    require('nvim-treesitter.configs').setup(opts)
+	-- EEE change 'nvim-treesitter.configs' to 'nvim-treesitter.config' with nvim 0.12
+    require('nvim-treesitter.config').setup(opts)
 
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
