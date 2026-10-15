@@ -25,6 +25,7 @@ local plugin = {
         }
       end,
       formatters_by_ft = {
+        go = { 'goimports' }, -- add/remove imports , other formatting configs is done via lsp.lua
         lua = { 'stylua' },
         cpp = { 'clang_format' },
         -- php = { 'pint', 'pretty-php', 'phpcbf' },
@@ -39,6 +40,13 @@ local plugin = {
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
+      },
+      -- The options you set here will be merged with the builtin formatters.
+      -- You can also define any custom formatters here.
+      formatters = {
+        clang_format = {
+          args = { '--style={BasedOnStyle: chromium}' },
+        },
       },
     },
   },
